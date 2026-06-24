@@ -70,5 +70,5 @@ function setup() {
     sheet.setFrozenRows(1);
   }
 
-  SpreadsheetApp.getUi().alert('✅ 설정 완료! "posts" 시트가 준비되었습니다.');
+  Logger.log('✅ 설정 완료! "posts" 시트가 준비되었습니다.');
 }
