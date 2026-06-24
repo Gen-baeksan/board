@@ -1,0 +1,15 @@
+body {
+  font-family: 'Pretendard', 'Segoe UI', sans-serif;
+}
+
+/* 카드 hover 효과 — Tailwind만으로는 translateY 조합이 어색해 직접 작성 */
+.post-item {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.post-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.1);
+}
+
+/* textarea 스크롤바 숨김 */
+textarea::-webkit-scrollbar { display: none; }

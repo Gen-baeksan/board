@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학생 게시판</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50 py-10 px-4">
+
+  <!-- 헤더 -->
+  <header class="max-w-2xl mx-auto mb-10 text-center">
+    <div class="inline-flex items-center gap-2 bg-indigo-100 text-indigo-600 text-xs font-semibold px-3 py-1 rounded-full mb-4 tracking-wide">
+      ✏️ STUDENTS BOARD
+    </div>
+    <h1 class="text-3xl sm:text-4xl font-bold text-slate-800 leading-tight">
+      학생 게시판
+    </h1>
+    <p class="mt-2 text-sm text-slate-400">자유롭게 글을 남겨 보세요</p>
+  </header>
+
+  <main class="max-w-2xl mx-auto space-y-8">
+
+    <!-- 작성 폼 -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 sm:p-8">
+      <h2 class="text-base font-semibold text-slate-700 mb-5">새 글 작성</h2>
+      <form id="post-form" class="flex flex-col gap-3">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input
+            type="text" id="author" placeholder="이름"
+            class="flex-1 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+            required>
+          <input
+            type="text" id="title" placeholder="제목"
+            class="flex-[2] rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+            required>
+        </div>
+        <textarea
+          id="content" placeholder="내용을 입력하세요" rows="4"
+          class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 placeholder-slate-400 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition resize-none"
+          required></textarea>
+        <div class="flex justify-end">
+          <button
+            type="submit"
+            class="inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 active:scale-95 text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-all duration-150 shadow-sm">
+            ＋ 글 작성
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 게시글 목록 -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-base font-semibold text-slate-700">게시글 목록</h2>
+        <span id="post-count" class="text-xs text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">0개</span>
+      </div>
+      <ul id="post-list" class="space-y-4">
+        <li id="empty-message" class="text-center py-16 text-slate-400 text-sm">
+          아직 작성된 게시글이 없습니다.
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
