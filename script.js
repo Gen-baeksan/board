@@ -10,14 +10,15 @@ const submitBtn = form.querySelector('button[type="submit"]');
 
 // ── API ───────────────────────────────────────────────────────
 async function apiFetch(payload) {
-  const res = await fetch(SCRIPT_URL, {
+  const res  = await fetch(SCRIPT_URL, {
     method:   payload ? 'POST' : 'GET',
     redirect: 'follow',
-    // text/plain → CORS preflight 없이 전송 가능
     headers:  payload ? { 'Content-Type': 'text/plain' } : undefined,
     body:     payload ? JSON.stringify(payload) : undefined,
   });
-  return res.json();
+  const data = await res.json();
+  if (data.error) throw new Error(data.error);
+  return data;
 }
 
 async function fetchPosts() {
@@ -123,8 +124,8 @@ form.addEventListener('submit', async e => {
     await createPost(post);
     form.reset();
     await load();
-  } catch {
-    alert('글 작성 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+  } catch (err) {
+    alert(`글 작성 중 오류: ${err.message || '잠시 후 다시 시도해 주세요.'}`);
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = '＋ 글 작성';
@@ -155,8 +156,8 @@ async function load() {
   try {
     const posts = await fetchPosts();
     renderPosts(posts);
-  } catch {
-    showError('게시글을 불러오지 못했습니다. SCRIPT_URL을 확인해 주세요.');
+  } catch (err) {
+    showError(err.message || '게시글을 불러오지 못했습니다. SCRIPT_URL을 확인해 주세요.');
   }
 }
 
