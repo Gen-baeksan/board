@@ -1,5 +1,5 @@
 // ── Apps Script 웹앱 URL을 여기에 붙여넣으세요 ───────────────
-const SCRIPT_URL = 'YOUR_SCRIPT_URL_HERE';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyyVb4d_wUmMpITsxUNDyZtlA_aS5tUBMOwZyA8YgJ9L9Oep00l-qTZ1RZZ3RKDyNV0/exec';
 // ──────────────────────────────────────────────────────────────
 
 const form      = document.getElementById('post-form');
