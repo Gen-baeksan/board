@@ -59,11 +59,12 @@
         <h2 class="text-base font-semibold text-slate-700">게시글 목록</h2>
         <span id="post-count" class="text-xs text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">0개</span>
       </div>
-      <ul id="post-list" class="space-y-4">
-        <li id="empty-message" class="text-center py-16 text-slate-400 text-sm">
-          아직 작성된 게시글이 없습니다.
-        </li>
-      </ul>
+      <!-- 로딩 스피너 -->
+      <div id="loading" class="flex justify-center py-16">
+        <div class="w-6 h-6 border-2 border-indigo-300 border-t-indigo-500 rounded-full animate-spin"></div>
+      </div>
+
+      <ul id="post-list" class="space-y-4 hidden"></ul>
     </section>
 
   </main>
